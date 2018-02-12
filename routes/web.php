@@ -12,24 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+	$data['module'] = 'dashboard';
+  return view('site.dashboard', $data);
 });
 
 Route::get('/index', function () {
-    return view('dashboard');
+	$data['module'] = 'dashboard';
+    return view('site.dashboard', $data);
 });
 
 Route::get('/Member', function () {
-    return view('member');
+	$data['module'] = 'member';
+    return view('site.member', $data);
 });
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-
-Route::get('/', function () {
-    return view('dashboard');
-});
 
 
 Route::get('/about', function () {
