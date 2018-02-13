@@ -8,7 +8,7 @@
     <meta property="twitter:creator" content="@pratikborsadiya">
     <!-- Open Graph Meta-->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:site_name" content="Admin Laravel">
     <meta property="og:title" content="Admin Theme with Laravel 5">
     <meta property="og:url" content="https://laravel.nottdev.com/">
     <meta property="og:image" content="{{URL::asset('img/banner.png')}}">
@@ -19,10 +19,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+		<link rel="shortcut icon" href="{{URL::asset('img/logo.ico')}}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Vali Admin</title>
+    <title>Admin Laravel - NottDev</title>
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
