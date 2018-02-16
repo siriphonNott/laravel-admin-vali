@@ -11,27 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-	$data['module'] = 'dashboard';
-  return view('site.dashboard', $data);
-});
+Route::get('/', 'DashboardController@index');
+// Route::get('/Member','MembersController@index');
+// Route::get('/Member/Create', 'MembersController@create');
 
-Route::get('/index', function () {
-	$data['module'] = 'dashboard';
-    return view('site.dashboard', $data);
-});
-
-Route::get('/Member', function () {
-	$data['module'] = 'member';
-    return view('site.member', $data);
-});
-
-
-
-Route::get('/about', function () {
-	// $data['firstname'] = 'Siriphon';
-	// $data['lastname']  = 'Panyathipo';
-	$name = 'Siriphon';
-    // return view('about')->with('name','Nott Dev');
-    return view('about')->withNameDo('Hi');
-});
+Route::resource('Member', 'Admin\MembersController');

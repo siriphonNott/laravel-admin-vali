@@ -14799,3 +14799,31 @@ be a descendant of the grid when it is being dragged.
 .user .user-settings label {
   color: #666;
 }
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.left {
+	text-align: left;
+}
+
+.block-i-opt {
+	text-align: center;
+}
+.block-i-opt .mar-r-5 {
+	 margin-right: 5px;
+}
+.block-i-opt .font-opt {
+	color: #009688;
+	font-size: 18px;
+	cursor: pointer;
+}
+.block-i-opt .font-opt:hover {
+	color: #00968882;
+	transition: color 0.15s;
+}
