@@ -98,7 +98,7 @@
 								</div>
 								<ul class="app-menu">
 									<li><a class="app-menu__item {{ Request::path() == '/' ? 'active' : '' }}" href="{{ url('/') }}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-									<li><a class="app-menu__item {{ Request::path() == 'Member' ? 'active' : '' }}" href="{{ url('/') }}/Member"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Members</span></a></li>
+									<li><a class="app-menu__item {{ (strpos(Request::path(), 'Member') !== false) ? 'active' : '' }}" href="{{ url('/') }}/Member"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Members</span></a></li>
 								</ul>
 							</aside>
 

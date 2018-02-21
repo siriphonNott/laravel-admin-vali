@@ -16,20 +16,20 @@
 		<div class="tile">
 			<div class="row">
 				<div class="col-lg-6 offset-lg-3">
-					<form>
+					<form id="form-create">
 						@csrf
 						<div class="form-group">
 							<label>Firstname</label>
-							<input class="form-control" id="firstname" type="text" placeholder="Firstname">
+							<input class="form-control" id="firstname" type="text" placeholder="Firstname" required>
 							<!-- <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone else.</small> -->
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Lastname</label>
-							<input class="form-control" id="lastname" type="text" placeholder="Lastname">
+							<input class="form-control" id="lastname" type="text" placeholder="Lastname" required>
 						</div>
 						<div class="form-group">
 							<label >Position</label>
-							<select class="form-control" id="position">
+							<select class="form-control" id="position" required>
 								<option value="">Select Position</option>
 								<option value="Manager">Manager</option>
 								<option value="Programmer">Programmer</option>
@@ -41,7 +41,7 @@
 						</div>
 						<div class="form-group">
 							<label >Office</label>
-							<select class="form-control" id="office">
+							<select class="form-control" id="office" required>
 								<option value="">Select Office</option>
 								<option value="Thailand">Thailand</option>
 								<option value="Tokyo">Tokyo</option>
@@ -51,82 +51,32 @@
 								<option value="Edinburgh">Edinburgh</option>
 							</select>
 						</div>
-					</form>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Age</label>
-						<input class="form-control" id="age" type="number" placeholder="Age">
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Start Date</label>
-						<input class="form-control" id="start_date" type="date" >
-					</div>
-					<div class="form-group">
-						<label class="control-label">Salary</label>
 						<div class="form-group">
-							<div class="input-group">
-								<div class="input-group-prepend"><span class="input-group-text">฿</span></div>
-								<input class="form-control" id="salary" type="number" placeholder="Amount">
-								<div class="input-group-append"><span class="input-group-text">.00</span></div>
+							<label for="exampleInputPassword1">Age</label>
+							<input class="form-control" id="age" type="number" placeholder="Age" required>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Start Date</label>
+							<input class="form-control" id="start_date" type="date" data-date="" data-date-format="DD MMMM YYYY" required>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Salary</label>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend"><span class="input-group-text">฿</span></div>
+									<input class="form-control" id="salary" type="number" placeholder="Amount" required>
+									<div class="input-group-append"><span class="input-group-text">.00</span></div>
+								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
-				<!-- <div class="col-lg-4 offset-lg-1">
-				<form>
-				<div class="form-group">
-				<fieldset disabled="">
-				<label class="control-label" for="disabledInput">Disabled input</label>
-				<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-			</fieldset>
+				<div class="tile-footer center">
+					<button class="btn btn-primary" type="submit">Submit</button>
+				</div>
+			</form>
 		</div>
-		<div class="form-group">
-		<fieldset>
-		<label class="control-label" for="readOnlyInput">Readonly input</label>
-		<input class="form-control" id="readOnlyInput" type="text" placeholder="Readonly input here…" readonly="">
-	</fieldset>
-</div>
-<div class="form-group has-success">
-<label class="form-control-label" for="inputSuccess1">Valid input</label>
-<input class="form-control is-valid" id="inputValid" type="text">
-<div class="form-control-feedback">Success! You've done it.</div>
-</div>
-<div class="form-group has-danger">
-<label class="form-control-label" for="inputDanger1">Invalid input</label>
-<input class="form-control is-invalid" id="inputInvalid" type="text">
-<div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-</div>
-<div class="form-group">
-<label class="col-form-label col-form-label-lg" for="inputLarge">Large input</label>
-<input class="form-control form-control-lg" id="inputLarge" type="text">
-</div>
-<div class="form-group">
-<label class="col-form-label" for="inputDefault">Default input</label>
-<input class="form-control" id="inputDefault" type="text">
-</div>
-<div class="form-group">
-<label class="col-form-label col-form-label-sm" for="inputSmall">Small input</label>
-<input class="form-control form-control-sm" id="inputSmall" type="text">
-</div>
-<div class="form-group">
-<label class="control-label">Input addons</label>
-<div class="form-group">
-<label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-<div class="input-group">
-<div class="input-group-prepend"><span class="input-group-text">$</span></div>
-<input class="form-control" id="exampleInputAmount" type="text" placeholder="Amount">
-<div class="input-group-append"><span class="input-group-text">.00</span></div>
-</div>
-</div>
-</div>
-</form>
-</div> -->
-</div>
-<div class="tile-footer center">
-	<button class="btn btn-primary" type="submit" id="demoSwal">Submit</button>
-</div>
-</div>
-</div>
+	</div>
 </div>
 @stop
 @section('js')
@@ -144,7 +94,8 @@ $('#demoNotify').click(function() {
 	});
 });
 
-$('#demoSwal').click(function() {
+$('#form-create').submit(function(event) {
+	event.preventDefault();
 	swal({
 		title: "Are you sure?",
 		text: "You will create new member!",
@@ -201,7 +152,6 @@ $('#demoSwal').click(function() {
 					}
 				}
 			});
-
 		} else {
 			swal("Cancelled", "You have cancelled.", "error");
 		}
@@ -209,13 +159,7 @@ $('#demoSwal').click(function() {
 });
 
 function clear() {
-	$('#firstname').val('');
-	$('#lastname').val('');
-	$('#position').val('');
-	$('#office').val('');
-	$('#age').val('');
-	$('#start_date').val('');
-	$('#salary').val('');
+	$('#form-create')[0].reset();
 }
 
 </script>
